@@ -64,12 +64,12 @@ class seats{
 	getdb(MYSQL* conn){
 		string query="SELECT rownumber,seatnumber,seat FROM ticket";
 		if(mysql_query(conn,query.c_str())){
-			cout<<"ERROR : "<<mysql_error(conn)<<endl;
+			cout<<"ERROR :3 "<<mysql_error(conn)<<endl;
 		}
 		MYSQL_RES* result;
 		result=mysql_store_result(conn);
 		if(!result){
-			cout<<"ERROR: "<<mysql_error(conn)<<endl;
+			cout<<"ERROR:4 "<<mysql_error(conn)<<endl;
 		}
 		MYSQL_ROW row;
 		while((row=mysql_fetch_row(result))){
@@ -87,7 +87,7 @@ int main() {
 	MYSQL* conn;
 	conn=mysql_init(NULL);
 	if(!mysql_real_connect(conn,host,user,pw,db,3306,NULL,0)){
-		cout<<"Error: "<<mysql_error(conn)<<endl;
+		cout<<"Error:1 "<<mysql_error(conn)<<endl;
 	}
 	else
 	{
@@ -97,7 +97,7 @@ int main() {
 //	sleep(3000);  // windows.h 3s in milisec
 	
 	if(mysql_query(conn,"CREAT TABLE IF NOT EXITS ticket(rownumber int , seatnumber int ,seat int)")){
-		cout<<"Error : "<<mysql_error(conn)<<endl;
+		cout<<"Error 2: "<<mysql_error(conn)<<endl;
 	}
 	
 	for(int row=1;row<=5;row++){
