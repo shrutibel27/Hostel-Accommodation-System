@@ -62,9 +62,9 @@ class seats{
 	}
 	
 	getdb(MYSQL* conn){
-		string query="SELECT rownumber,seatnumber,seat FROM ticket";
-		if(mysql_query(conn,query.c_str())){
-			cout<<"ERROR :3 "<<mysql_error(conn)<<endl;
+		string query = "SELECT rownumber,seatnumber,seat FROM ticket";
+        if (mysql_query(conn, query.c_str())) {
+		    cout << "Error:3 " << mysql_error(conn) << endl;
 		}
 		MYSQL_RES* result;
 		result=mysql_store_result(conn);
